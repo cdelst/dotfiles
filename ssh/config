@@ -7,3 +7,9 @@ Match exec "test -z $NFSSH_DISABLED"
     Include ~/.ssh/nflx_ssh.config
 # Do not remove the below line. The metatron CLI uses it to update this file.
 ##### END METATRON AUTOCONFIG
+
+# Personal GitHub account
+Host github.com
+    HostName github.com
+    User cdelst
+    IdentityFile ~/.ssh/id_rsa

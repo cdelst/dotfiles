@@ -12,5 +12,12 @@
     ~/bin:
         path: bin/
         create: true
+    ~/.aerospace.toml: aerospace.toml
+    ~/.config/sketchybar: 
+        path: sketchybar
+        create: true
+    ~/.config/linearmouse: 
+        path: linearmouse
+        create: true
 
 

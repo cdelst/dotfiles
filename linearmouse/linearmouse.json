@@ -1,0 +1,42 @@
+{
+  "schemes" : [
+    {
+      "if" : {
+        "device" : {
+          "productID" : "0xc547",
+          "vendorID" : "0x46d",
+          "productName" : "USB Receiver",
+          "category" : "mouse"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1.5061,
+        "disableAcceleration" : true
+      },
+      "buttons" : {
+        "switchPrimaryButtonAndSecondaryButtons" : false,
+        "universalBackForward" : true
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : 5
+        },
+        "modifiers" : {
+          "vertical" : {
+            "shift" : {
+              "type" : "changeSpeed",
+              "scale" : 5
+            }
+          }
+        },
+        "speed" : {
+          "vertical" : 0
+        }
+      }
+    }
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+}
