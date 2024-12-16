@@ -1,4 +1,10 @@
 
+
+# Personal GitHub account
+Host github.com
+    HostName github.com
+    User cdelst
+    IdentityFile ~/.ssh/id_rsa
 ##### BEGIN METATRON AUTOCONFIG
 # Do not remove the above line. The metatron CLI uses it to update this file.
 # The Include directive was added in 7.3. IgnoreUnknown was added in 6.3. This helps prevent breaking old SSH clients that don't need nflx SSH configuration
@@ -7,9 +13,3 @@ Match exec "test -z $NFSSH_DISABLED"
     Include ~/.ssh/nflx_ssh.config
 # Do not remove the below line. The metatron CLI uses it to update this file.
 ##### END METATRON AUTOCONFIG
-
-# Personal GitHub account
-Host github.com
-    HostName github.com
-    User cdelst
-    IdentityFile ~/.ssh/id_rsa

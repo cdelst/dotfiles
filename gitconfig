@@ -8,3 +8,5 @@
 [user]
 	name = Case Delst
 	email = cdelst@netflix.com
+[push]
+	autoSetupRemote = true
