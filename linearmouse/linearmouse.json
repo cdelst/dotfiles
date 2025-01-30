@@ -1,28 +1,29 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
   "schemes" : [
     {
-      "if" : {
-        "device" : {
-          "productID" : "0xc547",
-          "vendorID" : "0x46d",
-          "productName" : "USB Receiver",
-          "category" : "mouse"
-        }
-      },
       "pointer" : {
         "acceleration" : 1.5061,
         "disableAcceleration" : true
       },
       "buttons" : {
-        "switchPrimaryButtonAndSecondaryButtons" : false,
-        "universalBackForward" : true
+        "universalBackForward" : true,
+        "switchPrimaryButtonAndSecondaryButtons" : false
+      },
+      "if" : {
+        "device" : {
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d",
+          "category" : "mouse",
+          "productID" : "0xc547"
+        }
       },
       "scrolling" : {
         "acceleration" : {
           "vertical" : 1
         },
-        "distance" : {
-          "vertical" : 5
+        "speed" : {
+          "vertical" : 0
         },
         "modifiers" : {
           "vertical" : {
@@ -32,11 +33,43 @@
             }
           }
         },
+        "distance" : {
+          "vertical" : 5
+        }
+      }
+    },
+    {
+      "pointer" : {
+        "acceleration" : 1.5,
+        "disableAcceleration" : true
+      },
+      "if" : {
+        "device" : {
+          "vendorID" : "0x46d",
+          "productID" : "0xc539",
+          "productName" : "USB Receiver",
+          "category" : "mouse"
+        }
+      },
+      "scrolling" : {
+        "modifiers" : {
+          "vertical" : {
+            "shift" : {
+              "type" : "changeSpeed",
+              "scale" : 2
+            }
+          }
+        },
         "speed" : {
           "vertical" : 0
+        },
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : 5
         }
       }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }
