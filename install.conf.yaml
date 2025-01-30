@@ -19,5 +19,4 @@
     ~/.config/linearmouse: 
         path: linearmouse
         create: true
-
-
+    ~/.ideavimrc: ideavimrc
