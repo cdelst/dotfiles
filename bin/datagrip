@@ -16,4 +16,4 @@ for o in "$@"; do
   fi
 done
 
-open -na "/Users/cdelst/Applications/Gateway.app/Contents/MacOS/gateway" $wait --args "${intellij_args[@]}"
+open -na "/Users/cdelst/Applications/DataGrip.app/Contents/MacOS/datagrip" $wait --args "${intellij_args[@]}"
