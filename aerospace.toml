@@ -255,6 +255,10 @@ if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace code'
 
 [[on-window-detected]]
+if.app-id = 'com.jetbrains.datagrip'
+run = 'move-node-to-workspace code'
+
+[[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace web'
 
@@ -277,6 +281,8 @@ run = 'move-node-to-workspace notes'
 [[on-window-detected]]
 if.app-id = 'com.apple.Notes'
 run = 'move-node-to-workspace notes'
+
+
 
 
 # 40006 | com.googlecode.iterm2      | iTerm2
