@@ -110,6 +110,11 @@ let g:WhichKeyDesc_goto_prev_usage = "[q Jump to previous element under caret us
 
 "" Leader commands
 "" ========================================================
+
+" Open terminal
+map <leader>t <Action>(ActivateTerminalToolWindow)
+let g:WhichKeyDesc_terminal = "<leader>t Open terminal"
+
 " Comment lines
 map <leader>c <action>(CommentByLineComment)
 let g:WhichKeyDesc_comment = "<leader>c Comment line"
@@ -193,7 +198,7 @@ let g:WhichKeyDesc_file_nav_new_scratch_file = "<leader>fs New scratch file"
 
 
 " Close active tab
-map <leader>q <action>(CloseContent)
+map <leader>q <action>(CloseActiveTab)
 let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
 
 " Refactoring
@@ -256,10 +261,10 @@ let g:WhichKeyDesc_git_branches = "<leader>vb Open Git branches list"
 " Errors
 let g:WhichKeyDesc_errors = "<leader>e Error navigation"
 
-map <leader>en <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>en <Action>(GotoNextError)
 let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
 
-map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
+map <leader>ep <Action>(GotoPreviousError)
 let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
 
 " Links
@@ -285,18 +290,45 @@ let g:WhichKeyDesc_links_goto_action_commit_prs = "<leader>lgp Go to PR for high
 map <leader>lga <Action>(com.devspaces.netflix.plugingotointellij.GoToActionSpinnaker)
 let g:WhichKeyDesc_links_goto_action_spinnaker = "<leader>lga Go to spinnaker"
 
+" Bookmarks
+let g:WhichKeyDesc_bookmarks = "<leader>b Bookmarks"
+
+map <leader>b <Action>(ShowBookmarks)
+let g:WhichKeyDesc_bookmarks_show = "<leader>b Show bookmarks"
+
+map <leader>bc <action>(ToggleBookmark)
+let g:WhichKeyDesc_bookmarks_create = "<leader>bc Create bookmark"
+map <leader>bn <action>(ToggleBookmarkWithMnemonic)
+let g:WhichKeyDesc_bookmarks_toggle_mnemonic = "<leader>bn Toggle Mnemonic Bookmark"
+
+" New
+let g:WhichKeyDesc_new = "<leader>n New"
+map <leader>nf <Action>(NewFile)
+let g:WhichKeyDesc_new_file = "<leader>nf New file"
+
 " Harpoon
 map <leader>h <action>(ShowHarpoon)
+let g:WhichKeyDesc_harpoon = "<leader>h Harpoon"
 map <leader>hQ <action>(SetHarpoon1)
-map <leader>h2 <action>(SetHarpoon2)
-map <leader>h3 <action>(SetHarpoon3)
-map <leader>h4 <action>(SetHarpoon4)
+let g:WhichKeyDesc_harpoon_set1 = "<leader>hQ Set Harpoon 1"
+map <leader>hW <action>(SetHarpoon2)
+let g:WhichKeyDesc_harpoon_set2 = "<leader>hW Set Harpoon 2"
+map <leader>hE <action>(SetHarpoon3)
+let g:WhichKeyDesc_harpoon_set3 = "<leader>hE Set Harpoon 3"
+map <leader>hR <action>(SetHarpoon4)
+let g:WhichKeyDesc_harpoon_set4 = "<leader>hR Set Harpoon 4"
 map <leader>hT <action>(SetHarpoon5)
+let g:WhichKeyDesc_harpoon_set5 = "<leader>hT Set Harpoon 5"
 map <leader>hq <action>(GotoHarpoon1)
+let g:WhichKeyDesc_harpoon_goto1 = "<leader>hq Goto Harpoon 1"
 map <leader>hw <action>(GotoHarpoon2)
+let g:WhichKeyDesc_harpoon_goto2 = "<leader>hw Goto Harpoon 2"
 map <leader>he <action>(GotoHarpoon3)
+let g:WhichKeyDesc_harpoon_goto3 = "<leader>he Goto Harpoon 3"
 map <leader>hr <action>(GotoHarpoon4)
+let g:WhichKeyDesc_harpoon_goto4 = "<leader>hr Goto Harpoon 4"
 map <leader>ht <action>(GotoHarpoon5)
+let g:WhichKeyDesc_harpoon_goto5 = "<leader>ht Goto Harpoon 5"
 
 " Map escape to :noh <CR> to clear search highlighting
 map <esc> :noh <CR>
