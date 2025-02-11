@@ -1,23 +1,23 @@
 - clean: ['~']
 
 - link:
-    ~/.bash_profile: bash_profile
-    ~/.gitconfig: gitconfig
+    ~/.bash_profile: .bash_profile
+    ~/.gitconfig: .gitconfig
     ~/.ssh/config:
         path: ssh/config
         create: true
-    ~/.zprofile: zprofile
-    ~/.zshenv: zshenv
-    ~/.zshrc: zshrc
+    ~/.zprofile: .zprofile
+    ~/.zshenv: .zshenv
+    ~/.zshrc: .zshrc
     ~/.p10k.zsh: .p10k.zsh
     ~/bin:
         path: bin/
         create: true
-    ~/.aerospace.toml: aerospace.toml
+    ~/.aerospace.toml: .aerospace.toml
     ~/.config/sketchybar: 
         path: sketchybar
         create: true
     ~/.config/linearmouse: 
         path: linearmouse
         create: true
-    ~/.ideavimrc: ideavimrc
+    ~/.ideavimrc: .ideavimrc
