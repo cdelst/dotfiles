@@ -111,6 +111,13 @@ let g:WhichKeyDesc_goto_prev_usage = "[q Jump to previous element under caret us
 "" Leader commands
 "" ========================================================
 
+" Quick Java Doc
+map <leader>? <Action>(QuickJavaDoc)
+let g:WhichKeyDesc_quick_java_doc = "<leader>? Quick Java Doc"
+
+map <leader>p <Action>(ParameterInfo)
+let g:WhichKeyDesc_parameter_info = "<leader>p Parameter info"
+
 " Open terminal
 map <leader>t <Action>(ActivateTerminalToolWindow)
 let g:WhichKeyDesc_terminal = "<leader>t Open terminal"
@@ -172,6 +179,9 @@ let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
 map <leader>as <action>(SearchEverywhere)
 let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
 
+map <leader>aa <action>(GotoAction)
+let g:WhichKeyDesc_action_go_to = "<leader>aa Go to action"
+
 " File navigation
 let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
 
@@ -180,6 +190,9 @@ let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
 
 map <leader>fF <action>(com.mituuz.fuzzier.Fuzzier)
 let g:WhichKeyDesc_file_fuzzy_goto = "<leader>fF Fuzzy go to file"
+
+map <leader>ft <action>(TextSearchAction)
+let g:WhichKeyDesc_file_nav_text_search = "<leader>ft Text search"
 
 map <leader>fr <action>(RecentFiles)
 let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
