@@ -232,8 +232,11 @@ let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
 map <leader>rs <Action>(ChangeSignature)
 let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
 
-map <leader>rr <Action>(Refactorings.QuickListPopupAction)
-let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+map <leader>rq <Action>(Refactorings.QuickListPopupAction)
+let g:WhichKeyDesc_refactoring_all = "<leader>rq Open refactorings list"
+
+map <leader>rr <Action>(ShowReformatFileDialog)
+let g:WhichKeyDesc_refactoring_reformat = "<leader>rr Reformat file"
 
 " Go to code
 let g:WhichKeyDesc_goto = "<leader>g Go to X"
