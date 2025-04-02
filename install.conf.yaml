@@ -21,3 +21,4 @@
         path: linearmouse
         create: true
     ~/.ideavimrc: .ideavimrc
+    ~/.config/karabiner/karabiner.json: karabiner.json
