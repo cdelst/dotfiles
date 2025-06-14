@@ -57,9 +57,6 @@ let g:WhichKeyDesc_leader = "<leader> Leader key"
 "" Key mappings
 "" ========================================================
 
-imap jk <Esc>
-imap kj <Action>(IdeaVim.ReloadVimRc.reload)
-
 " Tab navigation
 nmap <A-n> :tabnext<CR>
 nmap <A-p> :tabprev<CR>
@@ -129,7 +126,7 @@ let g:WhichKeyDesc_comment = "<leader>c Comment line"
 " Jump around with easymotion
 map <leader>j <Plug>(easymotion-s)
 let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
-let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
+" let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
 
 " Open NERDTree (use q to exit)
 map <leader>x :NERDTree<CR>
@@ -200,9 +197,6 @@ let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
 map <leader>fc <action>(FindInPath)
 let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
 
-map <leader><leader> <Action>(RecentFiles)
-let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
-
 map <leader>fl <action>(RecentLocations)
 let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
 
@@ -262,6 +256,12 @@ let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
 nmap <leader>gf <Action>(Forward)
 let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
 
+map <leader>gs <Action>(com.devspaces.netflix.plugingotointellij.GoToActionSpinnaker)
+let g:WhichKeyDesc_links_goto_action_spinnaker = "<leader>gs Go to spinnaker"
+
+map <leader>gg <Action>(com.devspaces.netflix.plugingotointellij.GoToActionRepo)
+let g:WhichKeyDesc_links_goto_action_repo = "<leader>gg Go to github branch"
+
 " Git windows
 let g:WhichKeyDesc_git = "<leader>v Git operations"
 
@@ -274,6 +274,19 @@ let g:WhichKeyDesc_git_status = "<leader>vs Open Git status dialog"
 map <leader>vb <Action>(Git.Branches)
 let g:WhichKeyDesc_git_branches = "<leader>vb Open Git branches list"
 
+" Hierarchy
+let g:WhichKeyDesc_hierarchy = "<leader>H Hierarchy"
+
+map <leader>Hc <Action>(CallHierarchy)
+let g:WhichKeyDesc_hierarchy_call = "<leader>Hc Call"
+
+map <leader>HC <Action>(ClassHierarchy)
+let g:WhichKeyDesc_hierarchy_class = "<leader>HC Class"
+
+map <leader>Hm <Action>(MethodHierarchy)
+let g:WhichKeyDesc_hierarchy_method = "<leader>Hm Method"
+
+
 " Errors
 let g:WhichKeyDesc_errors = "<leader>e Error navigation"
 
@@ -285,26 +298,25 @@ let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
 
 " Links
 let g:WhichKeyDesc_links = "<leader>l Links"
-let g:WhichKeyDesc_links_copy = "<leader>lc Copy link"
-let g:WhichKeyDesc_links_goto = "<leader>lg Go to link"
+let g:WhichKeyDesc_links_copy = "<leader>l Copy link"
+let g:WhichKeyDesc_links_git = "<leader>lg Github"
+let g:WhichKeyDesc_links_sourcegraph = "<leader>ls Sourcegraph"
 
-map <leader>lcg <Action>(com.devspaces.netflix.plugingotointellij.GoToActionRepoCopy)
-let g:WhichKeyDesc_links_goto_action_repo_copy = "<leader>lcg Copy github branch link"
+map <leader>lgb <Action>(com.devspaces.netflix.plugingotointellij.GoToActionRepoCopy)
+let g:WhichKeyDesc_links_git_action_repo_copy = "<leader>lgb Branch"
 
-map <leader>lgg <Action>(com.devspaces.netflix.plugingotointellij.GoToActionRepo)
-let g:WhichKeyDesc_links_goto_action_repo = "<leader>lgg Go to github branch"
-
-map <leader>lcs <Action>(com.devspaces.netflix.plugingotointellij.GoToActionSourcegraphCopy)
-let g:WhichKeyDesc_links_goto_action_sourcegraph_copy = "<leader>lcs Copy sourcegraph branch link"
-
-map <leader>lgs <Action>(com.devspaces.netflix.plugingotointellij.GoToActionSourcegraph)
-let g:WhichKeyDesc_links_goto_action_sourcegraph = "<leader>lgs Go to sourcegraph branch"
+map <leader>lgc <Action>(com.devspaces.netflix.plugingotointellij.GoToActionRepoCopyExact)
+let g:WhichKeyDesc_links_git_action_repo_copy_exact = "<leader>lgc Commit"
 
 map <leader>lgp <Action>(com.devspaces.netflix.plugingotointellij.GoToActionCodePRs)
-let g:WhichKeyDesc_links_goto_action_commit_prs = "<leader>lgp Go to PR for highlighted change"
+let g:WhichKeyDesc_links_git_action_commit_prs = "<leader>lgp PR"
 
-map <leader>lga <Action>(com.devspaces.netflix.plugingotointellij.GoToActionSpinnaker)
-let g:WhichKeyDesc_links_goto_action_spinnaker = "<leader>lga Go to spinnaker"
+map <leader>lsb <Action>(com.devspaces.netflix.plugingotointellij.GoToActionSourcegraphCopy)
+let g:WhichKeyDesc_links_sourcegraph_action_sourcegraph_copy = "<leader>lsb Branch"
+
+map <leader>lsc <Action>(com.devspaces.netflix.plugingotointellij.GoToActionSourcegraphCopyExact)
+let g:WhichKeyDesc_links_sourcegraph_action_sourcegraph_copy_exact = "<leader>lsc Commit"
+
 
 " Bookmarks
 let g:WhichKeyDesc_bookmarks = "<leader>b Bookmarks"
@@ -346,8 +358,9 @@ let g:WhichKeyDesc_harpoon_goto4 = "<leader>hr Goto Harpoon 4"
 map <leader>ht <action>(GotoHarpoon5)
 let g:WhichKeyDesc_harpoon_goto5 = "<leader>ht Goto Harpoon 5"
 
+" Inspect
+
+map <leader>i <action>(InspectCode)
+let g:WhichKeyDesc_inspect_code = "<leader>i Inspect code"
 " Map escape to :noh <CR> to clear search highlighting
 map <esc> :noh <CR>
-
-" Map esc to jk
-inoremap jk <esc>
