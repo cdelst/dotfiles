@@ -4,7 +4,7 @@
 Host github.com
     HostName github.com
     User cdelst
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile ~/.ssh/id_ed25519
 ##### BEGIN METATRON AUTOCONFIG
 # Do not remove the above line. The metatron CLI uses it to update this file.
 # The Include directive was added in 7.3. IgnoreUnknown was added in 6.3. This helps prevent breaking old SSH clients that don't need nflx SSH configuration
@@ -13,3 +13,21 @@ Match exec "test -z $NFSSH_DISABLED"
     Include ~/.ssh/nflx_ssh.config
 # Do not remove the below line. The metatron CLI uses it to update this file.
 ##### END METATRON AUTOCONFIG
+
+# --- START CODER JETBRAINS coder.prod.netflix.net
+Host coder-jetbrains-coder.prod.netflix.net--*
+  ProxyCommand "/Users/cdelst/Library/Application Support/coder-gateway/coder.prod.netflix.net/coder-darwin-arm64" --global-config "/Users/cdelst/Library/Application Support/coder-gateway/coder.prod.netflix.net/config" --url https://coder.prod.netflix.net/ ssh --stdio --disable-autostart --usage-app=jetbrains --ssh-host-prefix coder-jetbrains-coder.prod.netflix.net-- %h
+  ConnectTimeout 0
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel ERROR
+  SetEnv CODER_SSH_SESSION_TYPE=JetBrains
+
+Host coder-jetbrains-coder.prod.netflix.net-bg--*
+  ProxyCommand "/Users/cdelst/Library/Application Support/coder-gateway/coder.prod.netflix.net/coder-darwin-arm64" --global-config "/Users/cdelst/Library/Application Support/coder-gateway/coder.prod.netflix.net/config" --url https://coder.prod.netflix.net/ ssh --stdio --disable-autostart --usage-app=disable --ssh-host-prefix coder-jetbrains-coder.prod.netflix.net-bg-- %h
+  ConnectTimeout 0
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel ERROR
+  SetEnv CODER_SSH_SESSION_TYPE=JetBrains
+# --- END CODER JETBRAINS coder.prod.netflix.net
