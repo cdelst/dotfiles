@@ -282,7 +282,9 @@ run = 'move-node-to-workspace notes'
 if.app-id = 'com.apple.Notes'
 run = 'move-node-to-workspace notes'
 
-
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = 'move-node-to-workspace m'
 
 
 # 40006 | com.googlecode.iterm2      | iTerm2
@@ -297,3 +299,16 @@ run = 'move-node-to-workspace notes'
 # 64584 | com.tinyspeck.slackmacgap  | Slack
 # 88015 | com.jetbrains.intellij     | IntelliJ IDEA
 #97977 | company.thebrowser.Browser | Arc
+#740   | com.apple.ActivityMonitor       | Activity Monitor
+#757   | com.apple.MobileSMS             | Messages
+#763   | com.ibm.software.aspera.connect | IBM Aspera Connect
+#769   | com.googlecode.iterm2           | iTerm2
+#792   | com.apple.finder                | Finder
+#43322 | com.chabomakers.Antinote        | Antinote
+#44774 | md.obsidian                     | Obsidian
+#3548  | com.1password.1password         | 1Password
+#66335 | com.spotify.client              | Spotify
+#39265 | com.jetbrains.intellij          | IntelliJ IDEA
+#7048  | company.thebrowser.Browser      | Arc
+#81902 | company.thebrowser.dia          | Dia
+#72874 | com.apple.Preview               | Preview
