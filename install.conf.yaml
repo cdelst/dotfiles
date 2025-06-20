@@ -9,7 +9,6 @@
     ~/.zprofile: .zprofile
     ~/.zshenv: .zshenv
     ~/.zshrc: .zshrc
-    ~/.p10k.zsh: .p10k.zsh
     ~/bin:
         path: bin/
         create: true
@@ -22,3 +21,4 @@
         create: true
     ~/.ideavimrc: .ideavimrc
     ~/.config/karabiner/karabiner.json: karabiner.json
+    ~/.config/starship.toml: starship.toml

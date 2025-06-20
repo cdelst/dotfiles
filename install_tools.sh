@@ -7,6 +7,7 @@ BREW_APPS=(
   lazygit
   ncspot
   awscli
+  starship
 )
 
 # List of cask installs
