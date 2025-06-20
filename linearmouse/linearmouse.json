@@ -2,20 +2,21 @@
   "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
   "schemes" : [
     {
+      "buttons" : {
+        "switchPrimaryButtonAndSecondaryButtons" : false,
+        "universalBackForward" : true
+      },
       "if" : {
         "device" : {
+          "category" : "mouse",
           "productName" : "USB Receiver",
           "vendorID" : "0x46d",
-          "productID" : "0xc547",
-          "category" : "mouse"
+          "productID" : "0xc547"
         }
       },
       "scrolling" : {
         "distance" : {
-          "vertical" : 5
-        },
-        "acceleration" : {
-          "vertical" : 1
+          "vertical" : "auto"
         },
         "speed" : {
           "vertical" : 0
@@ -30,23 +31,22 @@
               "type" : "auto"
             }
           }
+        },
+        "acceleration" : {
+          "vertical" : 1
         }
       },
       "pointer" : {
-        "acceleration" : 1.5061,
-        "disableAcceleration" : true
-      },
-      "buttons" : {
-        "switchPrimaryButtonAndSecondaryButtons" : false,
-        "universalBackForward" : true
+        "disableAcceleration" : true,
+        "acceleration" : 1.5061
       }
     },
     {
       "if" : {
         "device" : {
-          "productID" : "0xc539",
-          "vendorID" : "0x46d",
           "productName" : "USB Receiver",
+          "vendorID" : "0x46d",
+          "productID" : "0xc539",
           "category" : "mouse"
         }
       },
@@ -54,33 +54,33 @@
         "acceleration" : {
           "vertical" : 1
         },
-        "modifiers" : {
-          "vertical" : {
-            "control" : {
-              "scale" : 2,
-              "type" : "changeSpeed"
-            },
-            "shift" : {
-              "type" : "alterOrientation"
-            },
-            "command" : {
-              "type" : "auto"
-            },
-            "option" : {
-              "type" : "auto"
-            }
-          }
+        "distance" : {
+          "vertical" : "auto"
         },
         "speed" : {
           "vertical" : 23.77
         },
-        "distance" : {
-          "vertical" : "auto"
+        "modifiers" : {
+          "vertical" : {
+            "option" : {
+              "type" : "auto"
+            },
+            "command" : {
+              "type" : "auto"
+            },
+            "shift" : {
+              "type" : "alterOrientation"
+            },
+            "control" : {
+              "type" : "changeSpeed",
+              "scale" : 2
+            }
+          }
         }
       },
       "pointer" : {
-        "acceleration" : 1.5,
-        "disableAcceleration" : true
+        "disableAcceleration" : true,
+        "acceleration" : 1.5
       }
     }
   ]
