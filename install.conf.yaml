@@ -9,6 +9,9 @@
     ~/.zprofile: .zprofile
     ~/.zshenv: .zshenv
     ~/.zshrc: .zshrc
+    ~/.config/zsh:
+        path: zsh/
+        create: true
     ~/bin:
         path: bin/
         create: true

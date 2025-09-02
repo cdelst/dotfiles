@@ -13,6 +13,7 @@ BREW_APPS=(
   zsh-autosuggestions
   jj 
   lazyjj
+  dotbot
 )
 
 # List of cask installs
@@ -56,4 +57,4 @@ for cask in "${CASK_APPS[@]}"; do
 done
 
 # Set global git ignore
-git config --global core.excludesFile ~/.dotfiles/.globalgitignore
+git config --global core.excludesFile ~/dotfiles/.globalgitignore
