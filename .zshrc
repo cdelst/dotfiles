@@ -4,6 +4,9 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+autoload -Uz compinit
+compinit
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -248,14 +251,42 @@ function gtjira() {
     fi
   fi
   
-  # Create branch name: cdelst/{TICKETID}/ticket-description
+  # Create branch name: cdelst/{TICKETID}/ticket-description-timestamp
   local branch_description=$(echo "$summary" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
-  local branch_name="cdelst/${ticket}/${branch_description}"
+  local timestamp=$(date +%Y%m%d-%H%M%S)
+  local branch_name="cdelst/${ticket}/${branch_description}-${timestamp}"
   
-  # Create Graphite branch
-  gt create "$branch_name"
+  # Create commit message
+  local commit_msg="$ticket: $summary"
+  
+  # Create Graphite branch with commit message
+  gt create "$branch_name" -m "$commit_msg"
   
   echo "Created Graphite branch: $branch_name"
+}
+
+function jdone() {
+  # Get current git branch
+  local current_branch=$(git branch --show-current)
+  
+  if [[ -z "$current_branch" ]]; then
+    echo "✗ Not in a git repository or no current branch"
+    return 1
+  fi
+  
+  # Extract ticket ID from branch name (looking for PROJECT-NUMBER pattern)
+  local ticket=$(echo "$current_branch" | grep -o '[A-Z]\+-[0-9]\+' | head -1)
+  
+  if [[ -z "$ticket" ]]; then
+    echo "✗ No Jira ticket found in branch name: $current_branch"
+    return 1
+  fi
+  
+  echo "Found ticket: $ticket"
+  echo "Moving ticket to Done..."
+  
+  # Move ticket to Done
+  jira issue move "$ticket" "Done"
 }
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
