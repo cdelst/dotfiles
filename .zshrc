@@ -161,6 +161,103 @@ function killport() {
   fi
 }
 
+function jip() {
+  jira issue list -s'In Progress' -a cdelst@netflix.com
+}
+
+function jtodo() {
+  jira issue list -s'To Do' -a cdelst@netflix.com
+}
+
+function jjira() {
+  # Get list of tickets with status filtering and let user select one
+  local selection=$(jira issue list -a cdelst@netflix.com -s "New" -s "To Do" -s "In Progress" --plain --no-headers --columns key,status,summary | fzf --prompt="Select ticket: ")
+  
+  if [[ -z "$selection" ]]; then
+    echo "No ticket selected"
+    return 1
+  fi
+  
+  # Extract ticket key, status, and summary from tab-delimited selection
+  local ticket=$(echo "$selection" | cut -f1)
+  local ticket_status=$(echo "$selection" | cut -f2)
+  local summary=$(echo "$selection" | cut -f3-)
+  
+  # Clean up summary (remove leading/trailing whitespace)
+  summary=$(echo "$summary" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+  
+  # If summary is empty, get it from jira list command without status
+  if [[ -z "$summary" ]]; then
+    summary=$(jira issue list -a cdelst@netflix.com --plain --no-headers --columns key,summary | grep "^$ticket" | cut -f2-)
+    summary=$(echo "$summary" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+  fi
+  
+  # If ticket is "To Do", move it to "In Progress"
+  if [[ "$ticket_status" == "To Do" ]]; then
+    echo "Moving ticket $ticket from 'To Do' to 'In Progress'..."
+    jira issue move "$ticket" "In Progress"
+    if [[ $? -eq 0 ]]; then
+      echo "✓ Ticket moved to In Progress"
+    else
+      echo "✗ Failed to move ticket"
+      return 1
+    fi
+  fi
+  
+  # Create commit message
+  local commit_msg="$ticket: $summary"
+  
+  # Create jujutsu commit
+  jj commit -m "$commit_msg"
+  
+  echo "Created commit: $commit_msg"
+}
+
+function gtjira() {
+  # Get list of tickets with status filtering and let user select one
+  local selection=$(jira issue list -a cdelst@netflix.com -s "New" -s "To Do" -s "In Progress" --plain --no-headers --columns key,status,summary | fzf --prompt="Select ticket: ")
+  
+  if [[ -z "$selection" ]]; then
+    echo "No ticket selected"
+    return 1
+  fi
+  
+  # Extract ticket key, status, and summary from tab-delimited selection
+  local ticket=$(echo "$selection" | cut -f1)
+  local ticket_status=$(echo "$selection" | cut -f2)
+  local summary=$(echo "$selection" | cut -f3-)
+  
+  # Clean up summary (remove leading/trailing whitespace)
+  summary=$(echo "$summary" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+  
+  # If summary is empty, get it from jira list command without status
+  if [[ -z "$summary" ]]; then
+    summary=$(jira issue list -a cdelst@netflix.com --plain --no-headers --columns key,summary | grep "^$ticket" | cut -f2-)
+    summary=$(echo "$summary" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+  fi
+  
+  # If ticket is "To Do", move it to "In Progress"
+  if [[ "$ticket_status" == "To Do" ]]; then
+    echo "Moving ticket $ticket from 'To Do' to 'In Progress'..."
+    jira issue move "$ticket" "In Progress"
+    if [[ $? -eq 0 ]]; then
+      echo "✓ Ticket moved to In Progress"
+    else
+      echo "✗ Failed to move ticket"
+      return 1
+    fi
+  fi
+  
+  # Create branch name: cdelst/{TICKETID}/ticket-description
+  local branch_description=$(echo "$summary" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-\|-$//g')
+  local branch_name="cdelst/${ticket}/${branch_description}"
+  
+  # Create Graphite branch
+  gt create "$branch_name"
+  
+  echo "Created Graphite branch: $branch_name"
+}
+
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 _gt_yargs_completions()
