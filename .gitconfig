@@ -10,3 +10,11 @@
 	email = cdelst@netflix.com
 [push]
 	autoSetupRemote = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludeFile = /Users/cdelst/.dotfiles/.globalgitignore
+	excludesFile = /Users/cdelst/.dotfiles/.globalgitignore

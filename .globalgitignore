@@ -1,0 +1,7 @@
+.llm/
+.mcp.json
+.ndex/
+.roo/
+.roomodes
+.claude/
+venv/

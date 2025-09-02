@@ -2,3 +2,4 @@
 bin/datagrip
 bin/gateway
 bin/idea
+.jira_token
