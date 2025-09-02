@@ -78,6 +78,11 @@ zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
 you-should-use # https://github.com/MichaelAquilina/zsh-you-should-use
 )
 
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source <(jira completion zsh)
+source <(jj util completion zsh)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -139,6 +144,19 @@ function uwip() {
   git reset --mixed HEAD^
 }
 
+function killport() {
+  if [ -z "$1" ]; then
+    echo "Usage: killport <port_number>"
+    return 1
+  fi
+  lsof -ti:$1 | xargs kill -9 2>/dev/null
+  if [ $? -eq 0 ]; then
+    echo "Killed process on port $1"
+  else
+    echo "No process found on port $1"
+  fi
+}
+
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 _gt_yargs_completions()
@@ -176,3 +194,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -f $HOME/.sbn_aliases ] && source $HOME/.sbn_aliases
+
+# Source Claude aliases
+source $HOME/code/cis-ai/ezra/claude/aliases.sh
+
+# Add jira-cli token env variable, in a file that's not checked in
+export JIRA_API_TOKEN=$(cat $HOME/.dotfiles/.jira_token)
