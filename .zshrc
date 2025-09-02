@@ -140,6 +140,10 @@ function lg() {
   lazygit
 }
 
+function lj() {
+  lazyjj
+}
+
 function uwip() {
   git reset --mixed HEAD^
 }
