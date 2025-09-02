@@ -8,6 +8,10 @@ BREW_APPS=(
   ncspot
   awscli
   starship
+  ripgrep
+  jira-cli
+  zsh-autosuggestions
+  jj 
 )
 
 # List of cask installs
@@ -49,3 +53,6 @@ for cask in "${CASK_APPS[@]}"; do
     echo "$cask already installed"
   fi
 done
+
+# Set global git ignore
+git config --global core.excludesFile ~/.dotfiles/.globalgitignore
