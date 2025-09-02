@@ -12,6 +12,7 @@ BREW_APPS=(
   jira-cli
   zsh-autosuggestions
   jj 
+  lazyjj
 )
 
 # List of cask installs
