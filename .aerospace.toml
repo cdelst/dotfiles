@@ -275,6 +275,12 @@ if.app-id = 'com.googlecode.iterm2'
 run = 'move-node-to-workspace terminal'
 
 [[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+    "layout floating",
+]
+
+[[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace notes'
 

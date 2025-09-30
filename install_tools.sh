@@ -14,6 +14,8 @@ BREW_APPS=(
   jj 
   lazyjj
   dotbot
+  tree
+  pipx
 )
 
 # List of cask installs
@@ -27,6 +29,7 @@ CASK_APPS=(
   nikitabobko/tap/aerospace
   jetbrains-toolbox
   iterm2
+  ghostty
   mouseless
   obsidian
   visual-studio-code
@@ -58,3 +61,6 @@ done
 
 # Set global git ignore
 git config --global core.excludesFile ~/dotfiles/.globalgitignore
+
+pipx ensurepath
+sudo pipx ensurepath --global

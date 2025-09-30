@@ -4,4 +4,6 @@
 .roo/
 .roomodes
 .claude/
+.serena/
+claudedocs/
 venv/

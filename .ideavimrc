@@ -26,7 +26,6 @@ let g:argtextobj_pairs="[:],(:),<:>"
 """ Common settings -------------------------
 set showmode
 set so=5
-set relativenumber
 set incsearch
 set nu
 

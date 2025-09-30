@@ -3,3 +3,6 @@ bin/datagrip
 bin/gateway
 bin/idea
 .jira_token
+
+# Whitelist .claude file (override global gitignore)
+!.claude

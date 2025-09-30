@@ -25,3 +25,5 @@ source $ZSH/oh-my-zsh.sh
 for config_file in ~/.config/zsh/*.zsh; do
     [[ -r "$config_file" ]] && source "$config_file"
 done
+# Created by `pipx` on 2025-09-29 23:12:01
+export PATH="$PATH:/Users/cdelst/.local/bin"

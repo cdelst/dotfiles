@@ -1,4 +1,8 @@
-- clean: ['~']
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
     ~/.bash_profile: .bash_profile
@@ -25,3 +29,6 @@
     ~/.ideavimrc: .ideavimrc
     ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.config/starship.toml: starship.toml
+    ~/.claude/settings.json:
+        path: .claude/settings.json
+        create: true
