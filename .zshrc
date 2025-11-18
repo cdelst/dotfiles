@@ -12,6 +12,7 @@ plugins=(
     zsh-autosuggestions   # https://github.com/zsh-users/zsh-autosuggestions
     zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
     you-should-use        # https://github.com/MichaelAquilina/zsh-you-should-use
+    zsh-wakatime            # https://github.com/wbingli/zsh-wakatime
 )
 
 # Load Oh My Zsh
@@ -25,5 +26,8 @@ source $ZSH/oh-my-zsh.sh
 for config_file in ~/.config/zsh/*.zsh; do
     [[ -r "$config_file" ]] && source "$config_file"
 done
+
+# Claude shortcut
+alias cc='newt --app-type java-project claude --model "claude-sonnet-4-5-20250929[1m]"'
 # Created by `pipx` on 2025-09-29 23:12:01
 export PATH="$PATH:/Users/cdelst/.local/bin"
