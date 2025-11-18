@@ -11,11 +11,13 @@ BREW_APPS=(
   ripgrep
   jira-cli
   zsh-autosuggestions
-  jj 
+  jj
   lazyjj
   dotbot
   tree
   pipx
+  wakatime-cli
+  bat
 )
 
 # List of cask installs
@@ -35,6 +37,7 @@ CASK_APPS=(
   visual-studio-code
   cursor
   1password
+  zed
 
   # Fonts
   font-hack-nerd-font
@@ -64,3 +67,6 @@ git config --global core.excludesFile ~/dotfiles/.globalgitignore
 
 pipx ensurepath
 sudo pipx ensurepath --global
+
+# global npm packages
+npm install -g claude-code-wakatime
