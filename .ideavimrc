@@ -178,6 +178,12 @@ let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
 map <leader>aa <action>(GotoAction)
 let g:WhichKeyDesc_action_go_to = "<leader>aa Go to action"
 
+map <leader>ai <action>(copilot.chat.inline)
+let g:WhichKeyDesc_action_copilot_inline = "<leader>ai GitHub Copilot Inline Chat"
+
+map <leader>ac <action>(com.anthropic.code.plugin.actions.SendToClaudeAction)
+let g:WhichKeyDesc_action_claude = "<leader>ac Send code to Claude AI"
+
 " File navigation
 let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
 
