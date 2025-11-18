@@ -19,3 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 # SDKMAN Configuration (must be at end)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# For wakatime CLI project detection
+export ZSH_WAKATIME_PROJECT_DETECTION=true
