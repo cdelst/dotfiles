@@ -8,27 +8,30 @@
     ~/.bash_profile: .bash_profile
     ~/.gitconfig: .gitconfig
     ~/.ssh/config:
-        path: ssh/config
-        create: true
+      path: ssh/config
+      create: true
     ~/.zprofile: .zprofile
     ~/.zshenv: .zshenv
     ~/.zshrc: .zshrc
     ~/.config/zsh:
-        path: zsh/
-        create: true
+      path: zsh/
+      create: true
     ~/bin:
-        path: bin/
-        create: true
+      path: bin/
+      create: true
     ~/.aerospace.toml: .aerospace.toml
-    ~/.config/sketchybar: 
-        path: sketchybar
-        create: true
-    ~/.config/linearmouse: 
-        path: linearmouse
-        create: true
+    ~/.config/sketchybar:
+      path: sketchybar
+      create: true
+    ~/.config/linearmouse:
+      path: linearmouse
+      create: true
     ~/.ideavimrc: .ideavimrc
     ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.config/starship.toml: starship.toml
     ~/.claude/settings.json:
-        path: .claude/settings.json
-        create: true
+      path: .claude/settings.json
+      create: true
+    ~/.claude/CLAUDE.md:
+      path: .claude/CLAUDE.md
+      create: true
